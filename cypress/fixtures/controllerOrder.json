@@ -1,0 +1,8 @@
+{
+
+    "totalFinal" : "#total_price", 
+    "proceedToCheckoutButton": ".cart_navigation > .button > span", 
+    "pleaseSignInText": "#create-account_form > .form_content > p"
+
+    }
+    

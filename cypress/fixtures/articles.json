@@ -1,0 +1,7 @@
+{
+    "banner" : ".lighter",
+    "addToCartDress" : ":nth-child(1) > .product-container > .right-block > .button-container > .ajax_add_to_cart_button > span",
+    "productSuccesfullyAdded" : ".layer_cart_product > h2",
+    "proceedToCheckoutButton" : ".button-container > .button-medium > span"
+
+}
