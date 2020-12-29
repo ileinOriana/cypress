@@ -1,0 +1,6 @@
+{
+    "email": "#email", 
+    "password": "#passwd", 
+    "submitLogin": "#SubmitLogin > span", 
+    "textLoginSuccess": ".info-account"
+}

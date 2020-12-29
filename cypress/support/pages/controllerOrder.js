@@ -1,3 +1,5 @@
+const { SummaryPage } = require('./summaryPage');
+
 class controllerOrderPage{
    summary = (amount) => {
        cy.fixture('controllerOrder.json').then((locators) => {
@@ -11,6 +13,12 @@ class controllerOrderPage{
             cy.get(locators.pleaseSignInText).contains(signedInRequired);
         });
     }
+
+    summaryTab = () => {
+        const summaryTab = new SummaryPage();
+        return summaryTab;
+    }
+
 }
 
 export default new controllerOrderPage();

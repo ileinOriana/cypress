@@ -1,1 +1,6 @@
-{}
+{
+    "baseUrl": "http://automationpractice.com/",
+    "env": {
+        "loginUrl": "/index.php?controller=authentication&back=my-account"
+    }
+}

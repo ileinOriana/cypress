@@ -1,6 +1,7 @@
 import indexPage from '../support/pages/index';
 import articlesPage from '../support/pages/articles';
 import controllerOrderPage from '../support/pages/controllerOrder';
+import loginPage from '../support/pages/loginPage';
 
 describe('Search tests cases', function(){
     before(function(){
@@ -13,8 +14,8 @@ describe('Search tests cases', function(){
     });
 
     beforeEach(() => {
-        cy.visit('http://automationpractice.com/index.php');
-
+        cy.visit('/');
+        cy.intercept('POST', '**/index.php?rand=**').as("Purchase")
     });
 
     afterEach(function(){
@@ -28,21 +29,17 @@ describe('Search tests cases', function(){
         articlesPage.selectDress("Product successfully added to your shopping cart");
         controllerOrderPage.summary('$30.98'); 
         controllerOrderPage.signIn('Please enter your email address to create an account.')
-        
-        
-        //cy.intercept({method: 'POST', url: '/index.php?rand=1607907898262'}).as('compra');
-        //cy.wait('@compra').then(xhr => {
-            //expect(xhr.Status).eql(200);
-            //cy.get(':nth-child(2) > .product-container > .right-block > .content_price > .price').should('contain', xhr.response.producTotal);
-
         })
-
+    
+    it.only('Log in Success and then select a tshirt', () => {
+        cy.visit(`${Cypress.env("loginUrl")}`); 
+        loginPage.credentials('ileinoriana@gmail.com', '123456'); 
+        loginPage.verifySignIn('Welcome to your account. Here you can manage all of your personal information and orders.'); 
+        articlesPage.selectTshirt();
+        cy.wait("@Purchase").then(xhr => {
+            expect(xhr.response.statusCode).eql(200);
+            let jsonBody = JSON.parse(xhr.response.body) //El body venia como string, por ende habia que convertirlo a Objeto para acceder a sus propiedades
+            controllerOrderPage.summaryTab().getTotalAmount().should('contain.text', jsonBody.total)        
+        })
     });
-/*
-    it('Search hats', function(){
-        indexPage.search('hat');
-        articlesPage.verifyArticle('"hat"');
-    });
-*/
- 
-
+});
