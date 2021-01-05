@@ -4,6 +4,11 @@
     "productSuccesfullyAdded" : ".layer_cart_product > h2",
     "proceedToCheckoutButton" : ".button-container > .button-medium > span", 
     "tshirtView": ".sf-menu > :nth-child(3) > a", 
-    "addToCartTshirt": ".ajax_add_to_cart_button > span"
+    "moreButton": "#homefeatured > :nth-child(2) > .product-container > .right-block > .button-container > .lnk_view > span",
+    "addToCartTshirt": ".ajax_add_to_cart_button > span", 
+    "addToWishListButton": "#wishlist_button", 
+    "addedToWishListPopup": ".fancybox-error", 
+    "closeAddedtoWishListPopup": ".fancybox-item"
+
 
 }

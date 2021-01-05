@@ -5,6 +5,12 @@ class indexPage{
             cy.get(locators.searchButton).click();
         })
     }
+
+    clickHome = (homeButton) => {
+        cy.fixture('index.json').then((locators) => {
+            cy.get(locators.homeButton).click();
+        })
+    }
 }
 
 export default new indexPage();

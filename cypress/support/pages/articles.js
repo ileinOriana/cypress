@@ -22,6 +22,20 @@ class articlesPage{
         });
     }
 
+    addToWishList = (itemadedtoWishList) => {
+        cy.fixture('articles.json').then((locators)=> {
+            cy.get(locators.addToWishListButton).click(); 
+            cy.get(locators.addedToWishListPopup); 
+            cy.get(locators.closeAddedtoWishListPopup).click();
+        });
+    }
+
+    clickMoreButton = (moreButton) => {
+        cy.fixture('articles.json').then((locators)=> {
+            cy.get(locators.moreButton).click();
+        });
+    }
+
 
     
 } 

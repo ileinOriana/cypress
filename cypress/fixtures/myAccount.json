@@ -1,0 +1,4 @@
+{
+    "myWishListLink": ".lnk_wishlist > a > span", 
+    "myprofileButton": ".account > span"
+}

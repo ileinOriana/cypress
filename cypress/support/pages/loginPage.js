@@ -1,5 +1,5 @@
 class loginPage{
-    credentials = (email, password) => {
+    insertCredentials = (email, password) => {
         cy.fixture('login.json').then((locators)=> {
             cy.get(locators.email).type(email);
             cy.get(locators.password).type(password);
